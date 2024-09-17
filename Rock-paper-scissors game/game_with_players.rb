@@ -14,6 +14,7 @@ def end_game(choice, name_of_first_user, name_of_second_user, points)
 end
 
 def normalize_choice(choice)
+    case choice
     when /^к/
         "камінь"
     when /^н/
