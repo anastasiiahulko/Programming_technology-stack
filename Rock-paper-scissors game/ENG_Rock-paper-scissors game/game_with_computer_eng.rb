@@ -1,10 +1,9 @@
 def normalize_choice(choice)
-    case choice
-    when ["rock", "roc", "ro", "r"].include?(choice)
+    if ["rock", "roc", "ro", "r"].include?(choice)
         "rock"
-    when ["paper", "pape", "pap", "pa", "p"].include?(choice)
+    elsif ["paper", "pape", "pap", "pa", "p"].include?(choice)
         "paper"
-    when ["scissors", "scissor", "scisso", "sciss", "scis", "sci", "sci", "sc", "s"].include?(choice)
+    elsif ["scissors", "scissor", "scisso", "sciss", "scis", "sci", "sci", "sc", "s"].include?(choice)
         "scissors"
     else
         choice
