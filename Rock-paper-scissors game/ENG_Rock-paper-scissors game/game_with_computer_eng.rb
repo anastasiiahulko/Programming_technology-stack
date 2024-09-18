@@ -36,18 +36,20 @@ end
 
 
 def determination_of_the_winner(normal_player_choise, computer_choise, points)
-    
+    winning_combinations = {
+      "rock"" => "scissors",
+      "scissors" => "paper",
+      "paper" => "rock""
+    }
+  
     if normal_player_choise == computer_choise
-        puts("A draw!")
-    elsif (normal_player_choise == "rock" && computer_choise == "scissors") || 
-        (normal_player_choise == "scissors" &&  computer_choise == "paper") || 
-        (normal_player_choise =="paper" && computer_choise == "rock")
-        puts("You won!")
-        points[:player] +=1
-        
+      puts("Нічия!")
+    elsif winning_combinations[normal_player_choise] == computer_choise
+      puts("You won!")
+      points[:player] += 1
     else
-        puts("The computer won!")
-        points[:computer] +=1
+      puts("The computer won!")
+      points[:computer] += 1
     end
 end
 
