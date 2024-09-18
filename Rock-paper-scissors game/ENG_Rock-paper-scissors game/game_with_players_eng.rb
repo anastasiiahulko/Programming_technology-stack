@@ -1,6 +1,6 @@
 def end_game(choice, name_of_first_user, name_of_second_user, points)
     if choice == "0"
-        if points.length<=0
+        if points[:player_one] == 0 && points[:player_two] == 0
             puts("Game over")
             exit
         else
