@@ -1,12 +1,13 @@
 def end_game(choice, name_of_first_user, name_of_second_user, points)
     if choice == "0"
-        if points[:player_one] == 0 && points[:player_two] == 0
-            puts("Game over")
-            exit
-        else
+        if points[:player_one] > 0 && points[:player_two] > 0
             puts("Game over")
             puts("Final score: \n ")
             puts(point_results(name_of_first_user, name_of_second_user, points))
+            exit
+        else
+            puts("Game over")
+            
             exit
         
         end
@@ -48,18 +49,21 @@ def determination_of_the_winner(normal_first_user_choise, normal_second_user_cho
     end
 end
 
+
+points = {player_one: 0, player_two: 0}
+
 puts("Enter your names. Enter 0 to exit the game:")
 puts("Player 1:")
 name_of_first_user = gets.chomp
 
-end_game(name_of_first_user, "", "", "")
+end_game(name_of_first_user, "", "", points)
 
 puts("Player 2:")
 name_of_second_user = gets.chomp
 
-end_game(name_of_second_user, "", "", "")
+end_game(name_of_second_user, "", "", points)
 
-points = {player_one: 0, player_two: 0}
+
 
 # Камінь ламає ножиці
 # Ножиці ріжуть папір
@@ -67,14 +71,14 @@ points = {player_one: 0, player_two: 0}
 
 loop do
     puts("Player #{name_of_first_user}, choose 'rock', 'scissors' or 'paper'. Enter 0 to exit the game:")
-    first_user_choise = gets.chomp
+    first_user_choise = gets.chomp.downcase
     
     end_game(first_user_choise, name_of_first_user, name_of_second_user, points)
     
     normal_first_user_choise = normalize_choice(first_user_choise)
 
     puts("Player #{name_of_second_user}, choose 'rock', 'scissors' or 'paper'. Enter 0 to exit the game:")
-    second_user_choise = gets.chomp
+    second_user_choise = gets.chomp.downcase
     
     end_game(second_user_choise, name_of_first_user, name_of_second_user, points)
     
