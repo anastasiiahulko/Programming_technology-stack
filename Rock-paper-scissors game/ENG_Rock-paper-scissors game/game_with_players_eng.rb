@@ -1,6 +1,6 @@
-def end_game(choice, name_of_first_user, name_of_second_user, points)
+def end_game(choice, name_of_first_user, name_of_second_user, points, num_game)
     if choice == "0"
-        if points[:player_one] > 0 && points[:player_two] > 0
+        if num_game > 0
             puts("Game over")
             puts("Final score: \n ")
             puts(point_results(name_of_first_user, name_of_second_user, points))
@@ -50,20 +50,20 @@ def determination_of_the_winner(normal_first_user_choise, normal_second_user_cho
 end
 
 
-points = {player_one: 0, player_two: 0}
+num_game = 0
 
 puts("Enter your names. Enter 0 to exit the game:")
 puts("Player 1:")
 name_of_first_user = gets.chomp
 
-end_game(name_of_first_user, "", "", points)
+end_game(name_of_first_user, "", "", "", num_game)
 
 puts("Player 2:")
 name_of_second_user = gets.chomp
 
-end_game(name_of_second_user, "", "", points)
+end_game(name_of_second_user, "", "", "", num_game)
 
-
+points = {player_one: 0, player_two: 0}
 
 # Камінь ламає ножиці
 # Ножиці ріжуть папір
@@ -73,18 +73,19 @@ loop do
     puts("Player #{name_of_first_user}, choose 'rock', 'scissors' or 'paper'. Enter 0 to exit the game:")
     first_user_choise = gets.chomp.downcase
     
-    end_game(first_user_choise, name_of_first_user, name_of_second_user, points)
+    end_game(first_user_choise, name_of_first_user, name_of_second_user, points, num_game)
     
     normal_first_user_choise = normalize_choice(first_user_choise)
 
     puts("Player #{name_of_second_user}, choose 'rock', 'scissors' or 'paper'. Enter 0 to exit the game:")
     second_user_choise = gets.chomp.downcase
     
-    end_game(second_user_choise, name_of_first_user, name_of_second_user, points)
+    end_game(second_user_choise, name_of_first_user, name_of_second_user, points, num_game)
     
     normal_second_user_choise = normalize_choice(second_user_choise)
 
     if ["rock", "scissors", "paper"].include?(normal_first_user_choise) && ["rock", "scissors", "paper"].include?(normal_second_user_choise)
+        num_game +=1
         puts(determination_of_the_winner(normal_first_user_choise, normal_second_user_choise, name_of_first_user, name_of_second_user, points))
         puts("Score: \n")
         puts(point_results(name_of_first_user, name_of_second_user, points))
