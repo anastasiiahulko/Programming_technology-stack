@@ -37,13 +37,13 @@ end
 
 def determination_of_the_winner(normal_player_choise, computer_choise, points)
     winning_combinations = {
-      "rock"" => "scissors",
+      "rock" => "scissors",
       "scissors" => "paper",
-      "paper" => "rock""
+      "paper" => "rock"
     }
   
     if normal_player_choise == computer_choise
-      puts("Нічия!")
+      puts("A draw!")
     elsif winning_combinations[normal_player_choise] == computer_choise
       puts("You won!")
       points[:player] += 1
@@ -52,6 +52,7 @@ def determination_of_the_winner(normal_player_choise, computer_choise, points)
       points[:computer] += 1
     end
 end
+  
 
 puts("Enter your name. Enter 0 to exit the game:")
 player_name = gets.chomp
