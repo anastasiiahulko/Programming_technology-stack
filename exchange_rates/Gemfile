@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+group :test do
+	gem 'minitest'
+	gem 'minitest-rails'
+	gem 'minitest-reporters'
+	gem pristine json --version 2.7.2
+end
