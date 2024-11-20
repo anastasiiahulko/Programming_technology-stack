@@ -3,7 +3,7 @@ require 'json'
 require 'csv'
 
 api_key = 'ccf25ff8875eb0da6fed70b7'
-base_currency = 'UAH'  # Можете змінити на EUR або іншу валюту
+base_currency = 'UAH'
 
 url = "https://v6.exchangerate-api.com/v6/#{api_key}/latest/#{base_currency}"
 
